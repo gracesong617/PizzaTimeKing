@@ -1,10 +1,15 @@
-/*
- * 👋 Hello! This is an ml5.js example made and shared with ❤️.
- * Learn more about the ml5.js project: https://ml5js.org/
- * ml5.js license and Code of Conduct: https://github.com/ml5js/ml5-next-gen/blob/main/LICENSE.md
- *
- * This example demonstrates tracking particular parts of the hand through ml5.handPose.
- */
+//creating the express app
+let express = require("express");
+let app = express();
+app.use("/", express.static("public"));
+
+//creating the http server - this is a new step!
+let http = require("http");
+let server = http.createServer(app);
+const PORT = process.env.PORT || 9999;
+server.listen(PORT, () => {
+  console.log("server on port ", PORT);
+});
 
 const startButton = document.getElementById("startbutton");
 const backButton = document.getElementById("backbutton");
